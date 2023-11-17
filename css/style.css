@@ -38,27 +38,6 @@ nav {
   background-color: var(--text-secondary);
 }
 
-/* .navbar {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 10vh;
-}
-
-.nav-left a {
-  color: var(--text-primary);
-  text-decoration: none;
-}
-
-.nav-center button{
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
-}
-
-.nav-center button :nth-child(2){
-  margin: 0 4rem;
-} */
 .navbar {
   display: flex;
   justify-content: space-evenly;
