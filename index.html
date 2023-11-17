@@ -23,7 +23,9 @@
       <nav>
         <div id="navbar" class="navbar">
           <a href="index.html">Home</a>
-          <button id="playButton" onclick="playFunction()">Play</button>
+          <a href="./play.html"
+            ><button id="playButton" onclick="playFunction()">Play</button></a
+          >
           <a href="#">Player Stats</a>
         </div>
       </nav>
@@ -69,17 +71,21 @@
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
-        </div>
+          </div>
 
-        <!-- Task 3 -->
-        <button type="submit" onclick="registerAndDisableFields()">Register</button>
-        <button id="startButton" onclick="startFunction()" disabled>Start</button>
-        <button id="endButton" onclick="endFunction()" disabled>End</button>
+          <!-- Task 3 -->
+          <button type="submit" onclick="registerAndDisableFields()">
+            Register
+          </button>
+          <button id="startButton" onclick="redirectToPlay()" disabled>
+            Start
+          </button>
+          <button id="endButton" onclick="endFunction()" disabled>End</button>
         </form>
       </div>
     </main>
-
     <!-- End Registration Form -->
+    <script src="./js/play.js"></script>    
+    <script src="./js/index.js"></script>
   </body>
-  <script src="./js/index.js"></script>
 </html>
