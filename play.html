@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Play</title>
+    <link rel="stylesheet" href="./css/play.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+
+    <header>
+        <nav>
+          <div id="navbar" class="navbar">
+            <a href="index.html">Home</a>
+            <button id="playButton" onclick="playFunction()">Play</button>
+            <a href="#">Player Stats</a>
+          </div>
+        </nav>
+      </header>
+  
+      <!-- End Navigation Bar -->
+
+      <!-- Play Area (Task 4) -->
+
+    <main>
+        <div class="form-container">
+        
+        <form id ="playArea">
+          <div class ="form-item"> 
+               <input type ="text" id="randnum1" size="2" disabled><label> x </label>
+            </div>
+            <div class="form-item">
+                <input type ="text" id="randnum2" size="2" disabled> <label> = </label>
+            </div>
+            <div class="form-item">
+                <input type ="number" id="ans" size="3"disabled >
+            </div>
+          
+          <div class ="form-item"> 
+                <input type = text id="result" size="10" disabled>
+          </div>
+          
+          <div class="form-btns">
+            <button id="accept" onclick="" disabled>Accept</button>
+            <button id="next" onclick = "PlayGame()" disabled>Next</button>
+            <button id="check" onclick = "checkAns()" disabled>Check Answer</button>
+          </div>
+          
+        </form>
+      </main>
+
+      <!-- End Play Area -->
+</body>
+<script src="./js/play.js"></script>
+<script src="./js/index.js"></script>
+</html>
