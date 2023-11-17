@@ -40,32 +40,36 @@ function calculateAge() {
 // Function to store user data array in session storage
 function storeUserArray(userArray) {
   var userArrayString = JSON.stringify(userArray);
-  sessionStorage.setItem('playerRegistrationData', userArrayString);
+  sessionStorage.setItem("playerRegistrationData", userArrayString);
 }
 
 // Function to retrieve user data array from session storage
 function getPlayerRegistrationData() {
-  var userArrayString = sessionStorage.getItem('playerRegistrationData');
+  var userArrayString = sessionStorage.getItem("playerRegistrationData");
   var userArray = JSON.parse(userArrayString) || [];
   return userArray;
 }
 
 function playFunction() {
-  // Retrieve the user data array from session storage
-  var storedData = getPlayerRegistrationData();
+  var startButton = document.getElementById("startButton");
 
-  if (storedData.length > 0) {
-    // If yes, store the user data array in session storage
-    storeUserArray(PlayerRegistrationData);
+  if (startButton && !startButton.disabled) {
+    // Retrieve the user data array from session storage
+    var storedData = getPlayerRegistrationData();
 
-    // If yes, navigate to play.html
-    window.location.href = "./play.html";
-    return false; // Add this line to prevent subsequent code execution
-  } else {
-    // If no, show an alert
-    setTimeout(function () {
-      alert("Register and click start!");
-    }, 50);
+    if (storedData.length > 0) {
+      // If yes, store the user data array in session storage
+      storeUserArray(PlayerRegistrationData);
+
+      playGame();
+    } else {
+      // If no, show an alert
+      setTimeout(function () {
+        alert("Register and click start!");
+      }, 50);
+    }  } else {
+      // If the "Start" button is disabled, show an alert
+      alert("Please enable the Start button by Registering.");
   }
 }
 
