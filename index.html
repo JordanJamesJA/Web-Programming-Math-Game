@@ -77,15 +77,21 @@
           <button type="submit" onclick="registerAndDisableFields()">
             Register
           </button>
-          <button id="startButton" onclick="redirectToPlay()" disabled>
+          <button
+            id="startButton"
+            onclick="playGame(redirectToPlay())"
+            disabled
+          >
             Start
           </button>
-          <button id="endButton" onclick="endFunction()" disabled>End</button>
+          <button id="endButton" onclick="endFunction(event)" disabled>
+            End
+          </button>
         </form>
       </div>
     </main>
     <!-- End Registration Form -->
-    <script src="./js/play.js"></script>    
+    <script src="./js/play.js"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>
