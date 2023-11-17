@@ -1,9 +1,3 @@
-function playFunction() {
-  var play = document.getElementById("playButton");
-  
-  alert("Register and click start!");
-}
-
 //Task 1
 //Function used to calculate age in form
 function calculateAge() {
@@ -42,6 +36,39 @@ function calculateAge() {
 }
 
 //Task 2
+
+// Function to store user data array in session storage
+function storeUserArray(userArray) {
+  var userArrayString = JSON.stringify(userArray);
+  sessionStorage.setItem('playerRegistrationData', userArrayString);
+}
+
+// Function to retrieve user data array from session storage
+function getPlayerRegistrationData() {
+  var userArrayString = sessionStorage.getItem('playerRegistrationData');
+  var userArray = JSON.parse(userArrayString) || [];
+  return userArray;
+}
+
+function playFunction() {
+  // Retrieve the user data array from session storage
+  var storedData = getPlayerRegistrationData();
+
+  if (storedData.length > 0) {
+    // If yes, store the user data array in session storage
+    storeUserArray(PlayerRegistrationData);
+
+    // If yes, navigate to play.html
+    window.location.href = "./play.html";
+    return false; // Add this line to prevent subsequent code execution
+  } else {
+    // If no, show an alert
+    setTimeout(function () {
+      alert("Register and click start!");
+    }, 50);
+  }
+}
+
 var PlayerRegistrationData = [];
 
 function Register() {
@@ -86,109 +113,17 @@ function Register() {
   document.getElementById("age").value = "";
   document.getElementById("gender").value = "";
 
-  return false;
+  return true;
 }
 
 //Task 3
 function registerAndDisableFields() {
   var registrationResult = Register();
 
-  document.getElementById("fname").disabled = true;
-  document.getElementById("lname").disabled = true;
-  document.getElementById("dob").disabled = true;
-  document.getElementById("age").disabled = true;
-  document.getElementById("gender").disabled = true;
-  document.querySelector("#registrationForm button").disabled = true;
-
-  document.getElementById("startButton").disabled = false;
-  document.getElementById("endButton").disabled = false;
+  if (registrationResult) {
+    document.getElementById("startButton").disabled = false;
+    document.getElementById("endButton").disabled = false;
+  }
 
   return registrationResult;
-}
-
-//Task 4
-
-//should rename this to PlayGame()
-function startFunction() {
-  alert("Start button clicked! :)");
-
-  //enables the buttons in the play area
-  document.getElementById("check").disabled = false;
-  document.getElementById("next").disabled = false;
-  document.getElementById("accept").disabled = false;
-    
-  
-  //stores the user's answer
-    
-  
-    var userans = document.getElementById("ans").value;
-
-    //the 2 random numbers (1-9) & (1-5)
-    let num1 = Math.floor(Math.random() * 9) + 1;
-    let num2 = Math.floor(Math.random() * 5) + 1;
-    
-    //displays the two numbers in disabled fields
-    document.getElementById("randnum1").value = num1;
-    document.getElementById("randnum2").value = num2;
-    
-    
-    
-    checkAns();
-    }
-    
-    function checkAns(){
-      if (
-        userans === "")
-        {
-          alert("No answer was entered");
-          return false;
-        }
-      //idk why this doesn't work
-
-    //checking to see if the random number is 1-5 for the correct answer
-    if (num2 === 1)
-    {
-    correctans = num1;
-    }
-    
-    if (num2 === 2)
-    {
-    correctans = num1*2;
-    } 
-    
-    if (num2 === 3)
-    {
-    correctans = num1*3;
-    }
-    
-    if (num2 === 4)
-    {
-    correctans = num1*4;
-    }
-    
-    if (num2 === 5)
-    {
-    correctans = num1*5;
-    }
-    
-    
-   //check to see if the answer is correct
-    if (userans === correctans) 
-    {
-      return document.getElementById("result").value = "Correct!";
-      //push the response to PlayerRegistrationData
-    } 
-    else 
-    {
-      return document.getElementById("result").value = "Incorrect!";
-      //push the response to PlayerRegistrationData
-    }
-    
-
-    }
-
-
-// rename to findPercentageScore()
-function endFunction() {
-  alert("End button clicked! :)");
 }
