@@ -106,7 +106,8 @@ function checkAns(event) {
 
 // rename to findPercentageScore()
 function endFunction(event) {
-event.preventDefault();
+
+// event.preventDefault();
   alert("End button clicked! :)");
 
   resetGame();
